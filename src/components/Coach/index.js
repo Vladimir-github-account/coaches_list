@@ -7,18 +7,13 @@ import styles    from './Coach.module.css';
 class Coach extends Component {
   constructor(props) {
     super(props);
+    //console.log(props);
     this.firstName =  props.coach.firstName || 'Coach';
     this.lastName = props.coach.lastName || '';
     this.level = props.coach.level || '';
     this.imageSrc =  props.coach.imageSrc;
+    this.isSelected =  props.coach.isSelected;
     this.clickHandler = props.clickHandler;
-    console.log(this.clickHandler);
-   /* this.state = {
-      firstName: null,
-      lastName: null,
-      level: null,
-      imageSrc: null
-    };*/
   }
 
 
@@ -32,7 +27,7 @@ class Coach extends Component {
           <CoachInfo level={this.level}
                      firstName={this.firstName}
                      lastName={this.lastName}/>
-          <CheckBox clickHandler={this.clickHandler}/>
+          <CheckBox isSelected={this.isSelected} clickHandler={this.clickHandler}/>
         </li>
     );
   }
