@@ -1,0 +1,27 @@
+.coachInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    width: 100%;
+    margin-left: 17px
+}
+
+.name {
+    color: #0B3157;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 19px;
+}
+
+.level {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    opacity: 0.5;
+    color: #0B3157;
+}

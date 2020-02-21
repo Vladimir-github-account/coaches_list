@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "firstName": "Brian",
+    "lastName": "McCauley",
+    "level": 1,
+    "imageSrc": "./brian.png"
+  },
+  {
+    "id": 2
+  },
+  {
+    "id": 3,
+    "lastName": "Buck",
+    "level": 2,
+    "imageSrc": ""
+  },
+  {
+    "id": 4,
+    "firstName": "Kenny",
+    "level": 3,
+    "imageSrc": "https://miro.medium.com/max/5980/1*-fgMlAndGlj-vl2wYDWcMQ.png"
+  },
+  {
+    "id": 5,
+    "firstName": "Tom",
+    "lastName": "Glover",
+    "level": 3
+  },
+  {
+    "id": 6,
+    "firstName": "John",
+    "lastName": "Brown",
+    "level": 3,
+    "imageSrc": "https://images.squarespace-cdn.com/content/v1/5aee389b3c3a531e6245ae76/1526473754247-ILYKLXR9LCDCYS1KPCCG/ke17ZwdGBToddI8pDm48kIKay4bYLpKTFWoXFdGxjdZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmo3_5ncHsS_KC884-Z46vJXn_CAy8A416_wq-2ydr5e5Si7pbxezXfOOzs3720f9z/DBS_Kevin_web_2640.jpg"
+  },
+  {
+    "id": 7,
+    "lastName": "White",
+    "level": 3,
+    "imageSrc": "https://www.microsoft.com/en-us/research/uploads/prod/2020/01/fredhohmanportrait-360x360.jpg"
+  }
+]

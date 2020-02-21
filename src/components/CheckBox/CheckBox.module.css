@@ -1,0 +1,11 @@
+.checkBox {
+
+    border-radius: 50%;
+    min-width: 28px;
+    max-width: 28px;
+    min-height: 28px;
+    max-height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
