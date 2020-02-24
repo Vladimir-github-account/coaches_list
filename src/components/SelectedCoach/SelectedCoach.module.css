@@ -1,0 +1,10 @@
+.selectedCoach{
+    color: #48C1C2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 17px;
+    text-align: left;
+    display: inline;
+}

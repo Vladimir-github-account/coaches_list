@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Coach                from '../Coach';
 import styles               from './CoachesList.module.css';
+import SelectedCoachesList  from '../SelectedCoachesList';
 
 class CoachesList extends Component {
   constructor(props) {
@@ -43,10 +44,6 @@ class CoachesList extends Component {
 
   render() {
     const { coaches } = this.state;
-    const selectedCoaches = coaches.filter(
-        coach => coach.isSelected === true );
-    console.log( selectedCoaches );
-    const selectedComponents = selectedCoaches.map((coach, index) => (<div key={index}>{coach.firstName || coach.lastName || coach.id}</div>));
     const coachesComponents = coaches.map(
         (coach, index) => (
             <Coach key={coach.id}
@@ -55,10 +52,15 @@ class CoachesList extends Component {
         )
     );
     return (
-        <div>
-          <ul className={styles.coachList}>{coachesComponents}</ul>
-          {selectedComponents}
-        </div>
+        <>
+          <ul className={styles.coachList}>
+            {<SelectedCoachesList
+                coaches={coaches}
+                clickHandler={this.coachCheckboxClickHandler}
+            />}
+            {coachesComponents}
+          </ul>
+        </>
     );
   }
 }

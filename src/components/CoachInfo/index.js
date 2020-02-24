@@ -4,7 +4,7 @@ import styles               from './CoachInfo.module.css';
 class CoachInfo extends Component {
   constructor(props) {
     super( props );
-    this.firstName = props.firstName || 'User';
+    this.firstName = props.firstName || 'Coach';
     this.lastName = props.lastName || '';
     this.level = props.level || '';
   }
