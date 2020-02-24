@@ -4,7 +4,7 @@ import styles from './SelectedCoach.module.css';
 function SelectedCoach(props) {
   const {
     clickHandler,
-    coach: {firstName, lastName, id}
+    firstName, lastName, id
   } = props;
   return (
       <li className={styles.selectedCoach}

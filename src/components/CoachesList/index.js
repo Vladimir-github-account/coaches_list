@@ -1,54 +1,60 @@
-import React, { Component } from 'react';
-import Coach                from '../Coach';
-import styles               from './CoachesList.module.css';
-import SelectedCoachesList  from '../SelectedCoachesList';
+import React, {Component}  from 'react';
+import Coach               from '../Coach';
+import styles              from './CoachesList.module.css';
+import SelectedCoachesList from '../SelectedCoachesList';
 
 class CoachesList extends Component {
   constructor(props) {
-    super( props );
+    super(props);
     this.state = {
-      coaches: [],
+      coaches: new Map(),
       isUpdated: false,
     };
   }
 
   loadData = () => {
-    fetch( './coaches.json' )
-        .then( response => response.json() )
-        .then( coaches => {
-          this.setState( {
-            coaches: [
-              ...this.state.coaches,
-              ...coaches.map( (coach) => {
-                coach.isSelected = false;
-                return coach;
-              } )
-            ]
-          } );
-        } );
+    fetch('./coaches.json')
+        .then(response => response.json())
+        .then(coachesArr => {
+          const coaches = this.state.coaches;
+          coachesArr.map((coach) => {
+            coach.isSelected = false;
+            coaches.set(coach.id, coach);
+            return coach;
+          });
+          this.setState({
+                          coaches
+                        });
+        });
   };
 
   componentDidMount() {
     this.loadData();
   }
 
-  coachCheckboxClickHandler = (index) => {
-      return (e) => {
-        const newCoaches = this.state.coaches;
-        newCoaches[index].isSelected = !newCoaches[index].isSelected;
-        this.setState( {
-          coaches: newCoaches
-        } );
-      };
+  coachClickHandler = (id) => {
+    return (e) => {
+      const coaches = this.state.coaches;
+      const coach = coaches.get(id);
+      coach.isSelected = !coach.isSelected;
+      coaches.set(id, coach);
+      this.setState({
+                      coaches
+                    });
+      console.log('2', coaches);
+    };
   };
 
   render() {
-    const { coaches } = this.state;
-    const coachesComponents = coaches.map(
-        (coach, index) => (
-            <Coach key={coach.id}
-                   coach={coach}
-                   clickHandler={this.coachCheckboxClickHandler( index )}/>
+    const {coaches} = this.state;
+    const coachesComponents = [];
+    coaches.forEach(
+        coach => (
+            coachesComponents.push(
+                <Coach key={coach.id}
+                       coach={coach}
+                       clickHandler={this.coachClickHandler(coach.id)}/>
+            )
         )
     );
     return (
@@ -56,7 +62,7 @@ class CoachesList extends Component {
           <ul className={styles.coachList}>
             {<SelectedCoachesList
                 coaches={coaches}
-                clickHandler={this.coachCheckboxClickHandler}
+                clickHandler={this.coachClickHandler}
             />}
             {coachesComponents}
           </ul>
