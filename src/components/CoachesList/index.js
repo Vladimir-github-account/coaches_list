@@ -32,19 +32,13 @@ class CoachesList extends Component {
   }
 
   coachCheckboxClickHandler = (index) => {
-    console.log( 'click handler' );
-    return checkBox => {
       return (e) => {
-        checkBox.setState( {
-          isSelected: !checkBox.state.isSelected
-        } );
         const newCoaches = this.state.coaches;
         newCoaches[index].isSelected = !newCoaches[index].isSelected;
         this.setState( {
           coaches: newCoaches
         } );
       };
-    };
   };
 
   render() {
@@ -52,7 +46,7 @@ class CoachesList extends Component {
     const selectedCoaches = coaches.filter(
         coach => coach.isSelected === true );
     console.log( selectedCoaches );
-    const selectedComponents = selectedCoaches.map(coach => (<div>{coach.firstName || coach.lastName || coach.id}</div>));
+    const selectedComponents = selectedCoaches.map((coach, index) => (<div key={index}>{coach.firstName || coach.lastName || coach.id}</div>));
     const coachesComponents = coaches.map(
         (coach, index) => (
             <Coach key={coach.id}
