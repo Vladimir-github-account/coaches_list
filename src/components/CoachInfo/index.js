@@ -1,22 +1,14 @@
-import React, { Component } from 'react';
-import styles               from './CoachInfo.module.css';
+import React  from 'react';
+import styles from './CoachInfo.module.css';
 
-class CoachInfo extends Component {
-  constructor(props) {
-    super( props );
-    this.firstName = props.firstName || 'Coach';
-    this.lastName = props.lastName || '';
-    this.level = props.level || '';
-  }
-
-  render() {
-    return (
-        <div className={styles.coachInfo}>
-          <h1 className={styles.name}>{`${this.firstName} ${this.lastName}`}</h1>
-          <h2 className={styles.level}>{`Level ${this.level}`}</h2>
-        </div>
-    );
-  }
+function CoachInfo(props) {
+  const { firstName, lastName, level } = props;
+  return (
+      <div className={styles.coachInfo}>
+        <h1 className={styles.name}>{`${firstName || 'Coach'} ${lastName || ''}`}</h1>
+        <h2 className={styles.level}>{`Level ${level || ''}`}</h2>
+      </div>
+  );
 }
 
 export default CoachInfo;
