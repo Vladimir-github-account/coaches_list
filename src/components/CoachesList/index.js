@@ -7,8 +7,7 @@ class CoachesList extends Component {
   constructor(props) {
     super( props );
     this.state = {
-      coaches: [],
-      isUpdated: false,
+      coaches: []
     };
   }
 
